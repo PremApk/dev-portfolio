@@ -1,74 +1,74 @@
 import React from "react";
 import "./about.css";
-import Image from "../../assets/avatar-2.svg";
+import Image from "../../assets/avatar-about.jpg";
 import AboutBox from "./AboutBox";
 
-const FILE_URL = "https://firebasestorage.googleapis.com/v0/b/itz-apk.appspot.com/o/Premkumar_Arumugam.pdf?alt=media&token=85bc8f19-603d-4327-9268-984e2846e9e5";
+const FILE_URL = "/PREMKUMAR_ARUMUGAM_CV.pdf";
+
+const skills = [
+  "Java",
+  "Python",
+  "Spring Boot",
+  "Hibernate",
+  "LangChain",
+  "Kafka",
+  "IBM MQ",
+  "MySQL",
+  "Oracle",
+  "PostgreSQL",
+  "Azure",
+  "AWS",
+  "OpenShift",
+  "Docker",
+  "Kubernetes",
+  "Streamlit",
+  "Gradio",
+  "Git",
+  "Maven",
+  "Gradle",
+  "Transact T24",
+];
 
 const downloadFileAtURL = (url) => {
-  const fileName = url.split("/").pop();
   const aTag = document.createElement("a");
   aTag.href = url;
-  aTag.setAttribute("download", fileName);
+  aTag.setAttribute("download", "PREMKUMAR_ARUMUGAM_CV.pdf");
   document.body.appendChild(aTag);
   aTag.click();
   aTag.remove();
 };
-const about = () => {
+
+const About = () => {
   return (
     <section className="about container section" id="about">
       <h2 className="section__title">About Me</h2>
       <div className="about__container grid">
-        <img src={Image} alt="" className="about__img" />
+        <img src={Image} alt="About Premkumar" className="about__img" />
         <div className="about__data grid">
           <div className="about__info">
             <div className="about__description">
-            An experienced professional with a strong background in Java. My expertise includes leveraging Java frameworks and tools to create scalable and efficient microservices solutions and address challenges related to distributed systems, REST API design, and inter-service communication.
+              I am a Microservices Architect and AI Engineer with experience
+              across Temenos banking platforms and Citi QFXLM Money Markets.
+              I design scalable Java services, modernize legacy systems, and
+              use AI-assisted engineering to cut operational toil. My work
+              spans REST APIs, distributed systems, Kafka streaming, and
+              cloud deployments on Azure, AWS, and OpenShift.
             </div>
-            <button className="btn" onClick={() => {
-              downloadFileAtURL(FILE_URL);
-            }}>Download CV</button>
+            <button
+              className="btn"
+              onClick={() => {
+                downloadFileAtURL(FILE_URL);
+              }}
+            >
+              Download CV
+            </button>
           </div>
-          <div className="about__skills grid">
-            <div className="skills__data">
-              <div className="skills__titles">
-                <h3 className="skills__name">Java</h3>
-                <span className="skills__number">90%</span>
-              </div>
-              <div className="skills__bar">
-                <span className="skills__percentage java"></span>
-              </div>
-            </div>
-
-            <div className="skills__data">
-              <div className="skills__titles">
-                <h3 className="skills__name">Spring Framework</h3>
-                <span className="skills__number">60%</span>
-              </div>
-              <div className="skills__bar">
-                <span className="skills__percentage spring"></span>
-              </div>
-            </div>
-
-            <div className="skills__data">
-              <div className="skills__titles">
-                <h3 className="skills__name">Apache Kafka</h3>
-                <span className="skills__number">50%</span>
-              </div>
-              <div className="skills__bar">
-                <span className="skills__percentage kafka"></span>
-              </div>
-            </div>
-
-            <div className="skills__data">
-              <div className="skills__titles">
-                <h3 className="skills__name">Cloud Knowledge</h3>
-                <span className="skills__number">40%</span>
-              </div>
-              <div className="skills__bar">
-                <span className="skills__percentage cloud"></span>
-              </div>
-            </div>
+          <div className="about__skills">
+            {skills.map((skill) => (
+              <span className="skill__chip" key={skill}>
+                {skill}
+              </span>
+            ))}
           </div>
         </div>
       </div>
@@ -77,4 +77,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default About;

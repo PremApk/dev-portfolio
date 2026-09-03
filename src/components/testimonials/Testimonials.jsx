@@ -2,7 +2,7 @@ import React from 'react';
 import './testimonials.css';
 import Image1 from "../../assets/avatar-2.svg";
 import Image3 from "../../assets/avatar-3.svg";
-import { Pagination} from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -30,16 +30,16 @@ const Testimonials = () => {
   return (
     <section className="testimonials container section">
       <h2 className="section__title">Clients & Reviews</h2>
-      <Swiper className="testimonials__container grid"
-      
-      modules={[Pagination]}
-      spaceBetween={30}
-      slidesPerView={1}
-      loop={true}
-      grabCursor={true}
-      pagination={{ clickable: true }}
+      <Swiper
+        className="testimonials__container grid"
+        modules={[Pagination]}
+        spaceBetween={30}
+        slidesPerView={1}
+        loop={true}
+        grabCursor={true}
+        pagination={{ clickable: true }}
       >
-        {data.map(({id, image, title, subtitle, comment}) => {
+        {data.map(({ id, image, title, subtitle, comment }) => {
           return (
             <SwiperSlide className="testimonials__title" key={id}>
               <div className="thumb">
@@ -49,11 +49,11 @@ const Testimonials = () => {
               <span className="subtitle">{subtitle}</span>
               <div className="comment">{comment}</div>
             </SwiperSlide>
-          )
+          );
         })}
       </Swiper>
     </section>
-  )
-}
+  );
+};
 
-export default Testimonials
+export default Testimonials;

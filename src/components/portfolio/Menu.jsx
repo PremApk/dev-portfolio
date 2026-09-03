@@ -1,51 +1,33 @@
-import Work1 from '../../assets/work-1.svg';
-import Work2 from '../../assets/work-2.svg';
-import Work3 from '../../assets/work-3.svg';
-import Work4 from '../../assets/work-4.svg';
-import Work5 from '../../assets/work-5.svg';
-import Work6 from '../../assets/work-6.svg';
+import Image1 from "../../assets/love.svg";
+import Image2 from "../../assets/celeb.svg";
+import Image3 from "../../assets/coins.svg";
 
 const Menu = [
-    {
-      id: 1,
-      image: Work1,
-      title: "Project Management Illustration",
-      category: "Design",
-    },
-    {
-      id: 2,
-      image: Work2,
-      title: "Guest App Walkthrough Screens",
-      category: "Art",
-    },
-    {
-      id: 3,
-      image: Work3,
-      title: "Delivery App Wireframe",
-      category: "Branding",
-    },
-    ,
-    {
-      id: 4,
-      image: Work4,
-      title: "Onboarding Motivation",
-      category: "Design",
-    },
-    ,
-    {
-      id: 5,
-      image: Work5,
-      title: "iMac Mockup Design",
-      category: "Creative",
-    },
-    ,
-    {
-      id: 6,
-      image: Work6,
-      title: "Game Store App Concept",
-      category: "Art",
-    },
-  ];
-  
+  {
+    id: 1,
+    image: Image1,
+    title: "Live Wikimedia Change Capture",
+    category: "Streaming",
+    description:
+      "Captured live Wikimedia data with Kafka clients and stored events in OpenSearch.",
+  },
+  {
+    id: 2,
+    image: Image2,
+    title: "Funds Authorisation Microservice",
+    category: "Fintech",
+    description:
+      "Limited Service Mode with zero-downtime so banks keep serving customers while Transact/T24 is unavailable.",
+  },
+  {
+    id: 3,
+    image: Image3,
+    title: "I++ Game",
+    category: "Product",
+    description:
+      "World Champion Finalist game built in Android Studio and published on Google Play.",
+    link: "https://play.google.com/store/apps/details?id=com.awesome.i&hl=en&gl=US",
+  },
+];
 
-export default Menu
+export default Menu;

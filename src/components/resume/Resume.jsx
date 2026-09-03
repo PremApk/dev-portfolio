@@ -3,45 +3,45 @@ import "./resume.css";
 import Data from "./Data";
 import Card from "./Card";
 
-const resume = () => {
+const Resume = () => {
   return (
     <div className="resume container section" id="resume">
       <h2 className="section__title">Experience</h2>
       <div className="resume__container grid">
-        <div className="timeline grid">
-          {Data.map((val, id) => {
-            if (val.category === "education") {
-              return (
-                <Card
-                  key={id}
-                  icon={val.icon}
-                  title={val.title}
-                  year={val.year}
-                  desc={val.desc}
-                />
-              );
-            }
-          })}
+        <div>
+          <h3 className="resume__column-title">Education</h3>
+          <div className="timeline grid">
+            {Data.filter((val) => val.category === "education").map((val) => (
+              <Card
+                key={val.id}
+                icon={val.icon}
+                title={val.title}
+                year={val.year}
+                company={val.company}
+                desc={val.desc}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="timeline grid">
-          {Data.map((val, index) => {
-            if (val.category === "experience") {
-              return (
-                <Card
-                  key={index}
-                  icon={val.icon}
-                  title={val.title}
-                  year={val.year}
-                  desc={val.desc}
-                />
-              );
-            }
-          })}
+        <div>
+          <h3 className="resume__column-title">Work</h3>
+          <div className="timeline grid">
+            {Data.filter((val) => val.category === "experience").map((val) => (
+              <Card
+                key={val.id}
+                icon={val.icon}
+                title={val.title}
+                year={val.year}
+                company={val.company}
+                desc={val.desc}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default resume;
+export default Resume;

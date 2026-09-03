@@ -1,50 +1,39 @@
 .services__container {
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 1.875rem;
+    column-gap: 1.5rem;
 }
 
 .services__card {
-    text-align: center;
+    text-align: left;
     padding: 1.875rem;
     border-radius: var(--border-radius);
     background-color: var(--container-color);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-soft);
     transition: all 0.3s ease-in-out;
 }
 
 .services__card:hover {
-    transform: translateY(-10px);
-}
-
-.services__card:nth-child(1) {
-    background-color: rgb(35, 71, 43);
-    box-shadow: 0px 5px 20px 0px rgb(108,108,229 / 50%);
-}
-
-.services__card:nth-child(2) {
-    background-color: rgb(95, 95, 92);
-    box-shadow: 0px 5px 20px 0px rgb(249,215,76 / 50%);
-}
-
-.services__card:nth-child(3) {
-    background-color: rgb(223, 88, 106);
-    box-shadow: 0px 5px 20px 0px rgb(249,123,139 / 50%);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+    border-color: rgba(15, 118, 110, 0.25);
 }
 
 .services__img {
     margin-bottom: 1.25rem;
+    width: 48px;
+    height: 48px;
 }
 
 .services__title {
     font-size: var(--h3-font-size);
-    margin-bottom: 1rem;
-    color: #fff;
+    margin-bottom: 0.75rem;
+    color: var(--title-color);
 }
 
 .services__description {
-    color: #f8f9fa;
+    color: var(--text-color);
 }
-
-
 
 @media screen and (max-width: 1024px) {
     .services__container {

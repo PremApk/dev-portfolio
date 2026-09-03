@@ -1,50 +1,86 @@
-import React from 'react';
+import React, { useState } from "react";
 import "./portfolio.css";
-import { useState } from "react";
 import Menu from "./Menu";
 
 const Portfolio = () => {
   const [items, setItems] = useState(Menu);
-  const filterItem = (categoryItem) => {
-    const updatedItems = Menu.filter((curElem) => {
-      return curElem.category === categoryItem;
-    });
+  const [active, setActive] = useState("Everything");
 
-    setItems(updatedItems);
-  }
+  const filterItem = (categoryItem) => {
+    setActive(categoryItem);
+    setItems(Menu.filter((curElem) => curElem.category === categoryItem));
+  };
+
+  const showAll = () => {
+    setActive("Everything");
+    setItems(Menu);
+  };
+
   return (
     <section className="work container section" id="work">
       <h2 className="section__title">Recent Works</h2>
       <div className="work__filters">
-        <span className="work__item" onClick={() => setItems(Menu)}>Everything</span>
-        <span className="work__item" onClick={() => filterItem ("Creative")}>Creative</span>
-        <span className="work__item" onClick={() => filterItem("Art")}>Art</span>
-        <span className="work__item" onClick={() => filterItem("Design")}>Design</span>
-        <span className="work__item" onClick={() => filterItem("Branding")}>Branding</span>
+        <span
+          className={`work__item ${active === "Everything" ? "active-work" : ""}`}
+          onClick={showAll}
+        >
+          Everything
+        </span>
+        <span
+          className={`work__item ${active === "Fintech" ? "active-work" : ""}`}
+          onClick={() => filterItem("Fintech")}
+        >
+          Fintech
+        </span>
+        <span
+          className={`work__item ${active === "Streaming" ? "active-work" : ""}`}
+          onClick={() => filterItem("Streaming")}
+        >
+          Streaming
+        </span>
+        <span
+          className={`work__item ${active === "Product" ? "active-work" : ""}`}
+          onClick={() => filterItem("Product")}
+        >
+          Product
+        </span>
       </div>
 
       <div className="work__container grid">
         {items.map((elem) => {
-          const{id, image, title, category} = elem;
-          return (
-            <div className="work__card" key={id}>
-              <div className="work__thumbnail">
-                <img src={image} alt="" className="work__img" />
-                <div className="work__mask"></div>
+          const { id, image, title, category, description, link } = elem;
+          const CardInner = (
+            <>
+              <div className="work__thumb">
+                <img src={image} alt={title} className="work__img" />
               </div>
-              <span className="work__category">{category}</span>
-              <h3 className="work__title">{title}</h3>
-              <a href="#" className="work__button">
-                <i className="icon-link work__button-icon"></i>
-              </a>
-            </div>
+              <div className="work__details">
+                <span className="work__category">{category}</span>
+                <h3 className="work__title">{title}</h3>
+                <p className="work__excerpt">{description}</p>
+              </div>
+            </>
+          );
 
-            
-          )
+          return link ? (
+            <a
+              className="work__card"
+              key={id}
+              href={link}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {CardInner}
+            </a>
+          ) : (
+            <div className="work__card" key={id}>
+              {CardInner}
+            </div>
+          );
         })}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Portfolio
+export default Portfolio;

@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "./static/css/main.36a647d3.css",
+    "main.js": "./static/js/main.0050c9cd.js",
+    "static/media/Premkumar Arumugam.pdf": "./static/media/Premkumar Arumugam.82ff20c15724b0e08e4f.pdf",
+    "static/media/avatar-home.jpg": "./static/media/avatar-home.5d46fd7947bc7db1b18f.jpg",
+    "static/media/coins.svg": "./static/media/coins.b4525c9334aa842e3d4af6c21196160f.svg",
+    "static/media/avatar-about.jpg": "./static/media/avatar-about.da2a47abc108b159ae8a.jpg",
+    "static/media/love.svg": "./static/media/love.32e5aaff55d4a9c54a0da2f6615066b2.svg",
+    "static/media/avatar-3.svg": "./static/media/avatar-3.605f4f9b2d464df4897817a6278e52d7.svg",
+    "static/media/celeb.svg": "./static/media/celeb.49bdda0f55e1b762b8694c2c749317f3.svg",
+    "static/media/avatar-2.svg": "./static/media/avatar-2.dbaf15ff9b5d68a39d1b24521fb12640.svg",
+    "static/media/logo.svg": "./static/media/logo.8c2fb23675dc34b2041044d6dd41e4e3.svg",
+    "static/media/bash.svg": "./static/media/bash.2ff4286cd733b0c193f3e32961fa9f36.svg",
+    "static/media/kafka.svg": "./static/media/kafka.6b1913399873fb5a524ec5101fbe8955.svg",
+    "static/media/springio-icon.svg": "./static/media/springio-icon.d333f33caee4cd8f3993a548646c1852.svg",
+    "index.html": "./index.html",
+    "main.36a647d3.css.map": "./static/css/main.36a647d3.css.map",
+    "main.0050c9cd.js.map": "./static/js/main.0050c9cd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36a647d3.css",
+    "static/js/main.0050c9cd.js"
+  ]
+}

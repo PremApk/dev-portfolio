@@ -1,9 +1,38 @@
 import React from "react";
 import "./about.css";
 import Image from "../../assets/avatar-about.jpg";
+import resumePdf from "../../assets/Premkumar Arumugam.pdf";
 import AboutBox from "./AboutBox";
 
-const FILE_URL = "/PREMKUMAR_ARUMUGAM_CV.pdf";
+const CV_FILE_NAME = "PREMKUMAR_ARUMUGAM_CV.pdf";
+
+const downloadCV = async (event) => {
+  event.preventDefault();
+  try {
+    const response = await fetch(resumePdf);
+    if (!response.ok) {
+      throw new Error("Could not fetch CV");
+    }
+    const blob = await response.blob();
+    const file = new Blob([blob], { type: "application/pdf" });
+    const url = window.URL.createObjectURL(file);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = CV_FILE_NAME;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.URL.revokeObjectURL(url);
+  } catch {
+    const fallback = document.createElement("a");
+    fallback.href = resumePdf;
+    fallback.download = CV_FILE_NAME;
+    fallback.rel = "noreferrer";
+    document.body.appendChild(fallback);
+    fallback.click();
+    fallback.remove();
+  }
+};
 
 const skills = [
   "Java",
@@ -29,15 +58,6 @@ const skills = [
   "Transact T24",
 ];
 
-const downloadFileAtURL = (url) => {
-  const aTag = document.createElement("a");
-  aTag.href = url;
-  aTag.setAttribute("download", "PREMKUMAR_ARUMUGAM_CV.pdf");
-  document.body.appendChild(aTag);
-  aTag.click();
-  aTag.remove();
-};
-
 const About = () => {
   return (
     <section className="about container section" id="about">
@@ -54,14 +74,14 @@ const About = () => {
               spans REST APIs, distributed systems, Kafka streaming, and
               cloud deployments on Azure, AWS, and OpenShift.
             </div>
-            <button
+            <a
               className="btn"
-              onClick={() => {
-                downloadFileAtURL(FILE_URL);
-              }}
+              href={resumePdf}
+              download={CV_FILE_NAME}
+              onClick={downloadCV}
             >
               Download CV
-            </button>
+            </a>
           </div>
           <div className="about__skills">
             {skills.map((skill) => (

@@ -2,7 +2,7 @@ name: Deploy GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [dev]
   workflow_dispatch:
 
 permissions:
@@ -35,10 +35,11 @@ jobs:
         env:
           CI: false
 
-      - name: Deploy to gh-pages
+      - name: Deploy to main
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: main
           publish_dir: ./build
           cname: itsapk.in
           force_orphan: true

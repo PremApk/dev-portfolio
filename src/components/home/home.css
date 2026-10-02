@@ -150,3 +150,10 @@
         font-size: 1.125rem;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .home__summary {
+        font-weight: 600;
+        color: var(--title-color);
+    }
+}

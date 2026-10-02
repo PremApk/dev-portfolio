@@ -3,6 +3,11 @@
     column-gap: 1.875rem;
 }
 
+.resume__container > div {
+    display: flex;
+    flex-direction: column;
+}
+
 .resume__column-title {
     margin-bottom: 1rem;
     font-size: var(--h3-font-size);
@@ -12,6 +17,7 @@
 }
 
 .timeline {
+    flex-grow: 1;
     background-color: var(--container-color);
     padding: 1.875rem;
     border-radius: var(--border-radius);
